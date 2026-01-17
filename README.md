@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# React Kanban - Task Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um aplicativo de gestão de tarefas em formato de quadro Kanban, desenvolvido com **Vite**, **React**, **TypeScript**, **Radix UI** e **Zod**. O app permite a criação, atualização, exclusão e organização de tarefas em diferentes status, com diferentes níveis de prioridade. O backend é simulado utilizando o **json-server**, oferecendo um CRUD completo de tarefas.
 
-Currently, two official plugins are available:
+![image](./public/imagem.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## React Compiler
+- **CRUD de Tarefas**: Crie, edite, visualize e exclua tarefas.
+- **Status das Tarefas**: As tarefas podem ser organizadas em status como "A fazer", "Em progresso" e "Concluído".
+- **Prioridade das Tarefas**: Defina diferentes níveis de prioridade para as tarefas.
+- **Kanban Board**: Interface organizada em colunas que reflete o status das tarefas.
+- **Simulação de Backend**: Utilização do `json-server` para simular um backend RESTful.
+- **Hooks React**:
+  - `useState`: Gerenciamento de estados locais.
+  - `useEffect`: Efeitos colaterais para buscar e atualizar dados.
+  - `useContext`: Compartilhamento de estados globais entre componentes.
+  
+## Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Vite**: Ferramenta de build rápida e leve para projetos em React.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **TypeScript**: Superconjunto de JavaScript que adiciona tipagem estática.
+- **Radix UI**: Conjunto de componentes acessíveis e não opinativos para construção da interface.
+- **Zod**: Biblioteca para validação de esquemas e tipos.
+- **json-server**: Ferramenta que simula uma API REST completa com base em um arquivo JSON.
 
-## Expanding the ESLint configuration
+## Instalação e Execução
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Pré-requisitos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Node.js** (versão 14 ou superior)
+- **npm** ou **yarn**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Passos para executar o projeto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone este repositório:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```bash
+   git clone https://github.com/seu-usuario/kanban-task-manager.git
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Navegue até o diretório do projeto:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   cd react-kanban
+   ```
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+   ou
+
+   ```bash
+   yarn install
+   ```
+
+4. Inicie o `json-server` para simular o backend:
+
+   ```bash
+   npm run json-server
+   ```
+
+5. Em outra aba do terminal, execute o projeto em modo de desenvolvimento:
+
+   ```bash
+   npm run dev
+   ```
+
+   ou
+
+   ```bash
+   yarn dev
+   ```
+
+6. Acesse a aplicação no navegador:
+
+   ```
+   http://localhost:5173
+   ```
+
+## Estrutura do Projeto
+
+- **src/components**: Contém os componentes reutilizáveis da aplicação.
+- **src/entities**: Contém os modelos de dados e interfaces utilizados na aplicação.
+- **src/hooks**: Contém hooks customizados.
+- **src/contexts**: Define os contextos globais da aplicação.
+- **src/services**: Funções responsáveis por fazer requisições HTTP ao `json-server`.
+- **db.json**: Simula o banco de dados da API com as tarefas.
